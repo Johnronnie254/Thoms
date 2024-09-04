@@ -1,57 +1,62 @@
 import React from 'react';
-import './Service.css';
-
-const Service = () => {
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faChartLine, faUsers, faTachometerAlt, faLaptopCode, faDatabase } from '@fortawesome/free-solid-svg-icons';
+import "./Service.css"
+export default function Services() {
     return (
-        <section className="home-testimonial">
-            <div className="container-fluid">
-                <div className="row d-flex justify-content-center testimonial-pos">
-                    <div className="col-md-12 pt-4 d-flex justify-content-center">
-                        <h3>Testimonials</h3>
-                    </div>
-                    <div className="col-md-12 d-flex justify-content-center">
-                        <h2>Feedback from Our Esteemed Clients</h2>
-                    </div>
-                </div>
-            </div>
-            <section className="home-testimonial-bottom">
-                <div className="container testimonial-inner">
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-md-4 style-3">
-                            <div className="tour-item ">
-                                <div className="tour-desc bg-white">
-                                    <div className="tour-text color-grey-3 text-center">&ldquo;After suffering for years with my Mercedez coz of the steering rack, i bumped into Nasyjma autos and i have never regreted it. My problem was solved for good&rdquo;</div>
-                                    <div className="d-flex justify-content-center pt-2 pb-2"><img className="tm-people" src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt="" /></div>
-                                    <div className="link-name d-flex justify-content-center">Eileen Elsa</div>
-                                    <div className="link-position d-flex justify-content-center">Client</div>
-                                </div>
+        <div style={{ backgroundColor: '#002b45', padding: '60px 20px', color: '#ffffff' }}>
+            <Container>
+                <h2 style={{ fontSize: '36px', fontWeight: 'bold', fontFamily: 'Arial', textAlign: 'center', marginBottom: '40px' }}>
+                    Our Services
+                </h2>
+                <Row>
+                    {services.map((service, index) => (
+                        <Col md={6} lg={4} className="mb-4" key={index}>
+                            <div className="service-card">
+                                <FontAwesomeIcon icon={service.icon} size="3x" style={{ marginBottom: '15px' }} />
+                                <h3 style={{ fontSize: '24px', fontWeight: 'bold' }}>{service.title}</h3>
+                                <p style={{ fontSize: '16px' }}>{service.description}</p>
                             </div>
-                        </div>
-                        <div className="col-md-4 style-3">
-                            <div className="tour-item ">
-                                <div className="tour-desc bg-white">
-                                    <div className="tour-text color-grey-3 text-center">&ldquo;I had made all plans to import spare parts for my VW because of the many counterfeits in the Kenyan market. How lucky was i to save time and extra cost I would have incurred. Thanks to this website.&rdquo;</div>
-                                    <div className="d-flex justify-content-center pt-2 pb-2"><img className="tm-people" src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /></div>
-                                    <div className="link-name d-flex justify-content-center"> Ojeezy</div>
-                                    <div className="link-position d-flex justify-content-center">Client</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 style-3">
-                            <div className="tour-item ">
-                                <div className="tour-desc bg-white">
-                                    <div className="tour-text color-grey-3 text-center">&ldquo;Quality and value for money. Thank you for the good customer experience. I would recommend anyone here anyday anytime.&rdquo;</div>
-                                    <div className="d-flex justify-content-center pt-2 pb-2"><img className="tm-people" src="https://images.pexels.com/photos/4946604/pexels-photo-4946604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /></div>
-                                    <div className="link-name d-flex justify-content-center">Hillary</div>
-                                    <div className="link-position d-flex justify-content-center">Client</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+        </div>
     );
 }
 
-export default Service;
+const services = [
+    {
+        title: 'Financial Advisory',
+        description: 'We provide expert financial advice to help businesses navigate the complexities of financial management. Our services include investment planning, risk management, tax advisory, and financial restructuring to ensure our clients achieve their financial goals.',
+        icon: faDollarSign
+    },
+    {
+        title: 'Research and Market Analysis',
+        description: 'Our research division conducts in-depth market analysis, providing actionable insights that empower businesses to make informed decisions. We cover market trends, competitive analysis, consumer behavior studies, and feasibility assessments.',
+        icon: faChartLine
+    },
+    {
+        title: 'Human Resource Solutions',
+        description: 'We offer comprehensive HR services, including talent acquisition, employee training and development, performance management, and HR policy formulation. Our goal is to help businesses build strong, motivated, and efficient teams.',
+        icon: faUsers
+    },
+    {
+        title: 'Strategic Planning',
+        description: 'Richways Business Solutions excels in developing strategic plans that drive business growth and sustainability. Our services include business model innovation, market entry strategies, and corporate restructuring.',
+        icon: faTachometerAlt
+    },
+    {
+        title: 'Information Technology (IT) Solutions',
+        description: 'We provide cutting-edge IT solutions that help businesses optimize their operations. Our services include IT infrastructure setup, software development, cybersecurity, and IT consulting.',
+        icon: faLaptopCode
+    },
+    {
+        title: 'Data Analytics',
+        description: 'Our data analytics services enable businesses to leverage big data for decision-making. We specialize in data mining, predictive analytics, business intelligence, and reporting to help businesses unlock insights from their data.',
+        icon: faDatabase
+    }
+];

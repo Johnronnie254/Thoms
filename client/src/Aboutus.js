@@ -5,48 +5,55 @@ import Col from 'react-bootstrap/Col';
 
 function Aboutus() {
   return (
-    <div>
-      <div style={{ marginTop: '70px', color: 'black', padding: '20px', marginBottom: '20px' }}>
-        <Container>
-          <Row>
-            <Col>
-              <img src='https://media.istockphoto.com/id/1301958898/photo/car-parts-and-auto-spare-in-shopping-basket-isolated-on-white.jpg?s=1024x1024&w=is&k=20&c=obJrXRKOtqYjhsPXPdG4yQxQLtMGtx5p0iCWb8PWfM8=' alt='car spare parts' style={{ width: '100%', height: 'auto', maxWidth: '300px', maxHeight: '300px', marginBottom: '20px' }} />
-            </Col>
-            <Col>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', width: '90%' }}>About Us</h2>
-              <p>Nasyjma Autos stands as a beacon of reliability and expertise in the automotive industry. With years of experience and a deep understanding of VW, Audi, and Benz models, we take pride in being a trusted partner for drivers worldwide. Whether you're a seasoned enthusiast or a first-time car owner, Nasyjma Autos is here to provide unparalleled service, expertise, and a vast inventory of spare parts to keep your vehicle running smoothly for years to come.</p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+    <div style={{ backgroundColor: '#002b45', color: '#ffffff', padding: '40px 0' }}>
+      <Container>
+        {/* Company Overview Section */}
+        <Row className="align-items-center">
+          <Col md={6}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#ffffff', marginBottom: '20px' }}>
+              About Us
+            </h2>
+            <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
+              Richways Business Solutions Limited is a leading consultancy firm dedicated to providing comprehensive business solutions across a range of industries. With a focus on delivering excellence and driving growth, we offer a suite of services designed to meet the complex needs of businesses in today’s competitive landscape. Our team of seasoned professionals brings a wealth of experience across various sectors, ensuring tailored solutions that enhance business performance and sustainability.
+            </p>
+          </Col>
+          <Col md={6}>
+            <img 
+              src='https://plus.unsplash.com/premium_photo-1678566153919-86c4ba4216f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              alt='Company Overview' 
+              style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }} 
+            />
+          </Col>
+        </Row>
 
-      <div style={{ marginTop: '20px', color: 'black', padding: '20px', marginBottom: '20px' }}>
-        <Container>
-          <Row>
-            <Col>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', width: '90%' }}>Our Mission</h2>
-              <p>At Nasyjma Autos, our mission is clear: to redefine the standard for automotive spare parts. We strive to offer a curated selection of components that not only meet but exceed the expectations of our customers. From sourcing the finest materials to ensuring meticulous craftsmanship, our focus remains unwavering – to enhance the performance and longevity of every vehicle we serve.</p>
-            </Col>
-            <Col>
-              <img src='https://media.istockphoto.com/id/496352632/photo/kindly-car-manager-with-customer.jpg?s=1024x1024&w=is&k=20&c=1GyLvxgiokrjo4o6CU1WMtsqXwuo7z_qrBLwK3QYRQ4=' alt='' style={{ width: '100%', height: 'auto', maxWidth: '300px', maxHeight: '300px', marginBottom: '20px' }} />
-            </Col>
-          </Row>
-        </Container>
-      </div>
+        {/* Our Mission Section */}
+        <Row className="align-items-center" style={{ marginTop: '40px' }}>
+          <Col md={6} order={{ md: 2 }}>
+            <img 
+              src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              alt='Mission' 
+              style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }} 
+            />
+          </Col>
+          <Col md={6} order={{ md: 1 }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#ffffff', marginBottom: '20px' }}>
+              
+            </h2>
+            <div style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
+            <h1> Our Commitment </h1>
 
-      <div style={{ marginTop: '20px', color: 'black', padding: '20px', marginBottom: '20px' }}>
-        <Container>
-          <Row>
-            <Col>
-              <img src='https://media.istockphoto.com/id/1438321944/photo/close-up-laptop-keyboard-with-car-button-and-magnifying-glass.jpg?s=1024x1024&w=is&k=20&c=igOrJqvBJSrZZkG3qL8fSnljvikL4JjgQaILDPvF000=' alt='' style={{ width: '100%', height: 'auto', maxWidth: '300px', maxHeight: '300px', marginBottom: '20px' }} />
-            </Col>
-            <Col>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', fontFamily: 'Arial, sans-serif', width: '90%' }}>Our Story</h2>
-              <p>Nasyjma Autos began with a shared passion for precision engineering and luxury vehicles. What started as a hobby among friends evolved into a dedicated pursuit to provide fellow enthusiasts with premium spare parts for VW, Audi, and Benz models. Our journey is fueled by a commitment to quality, expertise, and a genuine love for automotive excellence.</p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+                At Richways Business Solutions Limited, we are committed to delivering value to our clients through innovative solutions and unparalleled expertise. We strive to build long-term relationships with our clients by consistently exceeding their expectations and driving business success.
+
+
+            <h1>Our Mission</h1>
+                “To empower businesses by providing innovative solutions and strategic insights that drive sustainable growth and success.”
+
+            <h1>Our Vision</h1>
+                  “To be the most trusted partner for businesses seeking excellence and transformation in a rapidly evolving global market.”
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

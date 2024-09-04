@@ -5,11 +5,11 @@ import Nav from 'react-bootstrap/Nav'; // Import Nav component
 
 export default function NavBar() {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" style={{ padding: '10px 20px' }}>
+    <Navbar variant="dark" expand="lg" style={{ backgroundColor: '#002b45', padding: '10px 20px' }}>
       <Container>
         {/* Logo */}
         <Navbar.Brand as={Link} to="/" style={{ color: 'white', fontSize: '36px', fontWeight: 'bold' }}>
-          Nasyjma Autos
+          RBS
         </Navbar.Brand>
         {/* Collapse button for mobile */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

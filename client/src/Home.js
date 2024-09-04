@@ -21,15 +21,16 @@ function Home() {
       <section style={styles.cardSection}>
         <h2 style={styles.sectionTitle}>Our Featured Services</h2>
         <div style={styles.cardContainer}>
+          {/* Cards for services */}
           <div style={styles.card}>
-            <img src="https://plus.unsplash.com/premium_photo-1678566153919-86c4ba4216f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Consulting" style={styles.cardImage} />
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Consulting" style={styles.cardImage} />
             <div style={styles.cardBody}>
               <p style={styles.cardTitle}>IT Consulting</p>
               <p style={styles.cardText}>Tailored Solutions for Your Business</p>
             </div>
           </div>
           <div style={styles.card}>
-            <img src="https://images.unsplash.com/photo-1631624210938-539575f92e3c?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="DevOps" style={styles.cardImage} />
+            <img src="https://images.unsplash.com/photo-1668854096784-3ce7679fa841?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="DevOps" style={styles.cardImage} />
             <div style={styles.cardBody}>
               <p style={styles.cardTitle}>DevOps & Support</p>
               <p style={styles.cardText}>Ensuring Seamless Operations</p>
@@ -50,6 +51,22 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Partners Section */}
+      <section style={styles.partnersSection}>
+        <h2 style={styles.sectionTitle}>Our Partners</h2>
+        <Carousel showThumbs={false} autoPlay infiniteLoop>
+          {partners.map((partner, index) => (
+            <div key={index} style={styles.partnerCard}>
+              <img src={partner.logo} alt={partner.name} style={styles.partnerLogo} />
+              <div style={styles.partnerBody}>
+                <h3 style={styles.partnerTitle}>{partner.name}</h3>
+                <p style={styles.partnerText}>{partner.description}</p>
+              </div>
+            </div>
+          ))}
+        </Carousel>
       </section>
 
       {/* Testimonials Section */}
@@ -83,6 +100,25 @@ function Home() {
   );
 }
 
+// Partners data
+const partners = [
+  {
+    name: 'Mezzanine Ware Pty',
+    description: 'A leading technology company specializing in innovative solutions for the telecom, healthcare, and logistics industries.',
+    logo: 'https://via.placeholder.com/150?text=Mezzanine+Ware+Pty' // Placeholder image
+  },
+  {
+    name: 'Yara Group',
+    description: 'A global leader in agricultural solutions, focusing on sustainable farming practices and fertilizer production.',
+    logo: 'https://via.placeholder.com/150?text=Yara+Group' // Placeholder image
+  },
+  {
+    name: 'Hiview International Limited',
+    description: 'A consultancy firm renowned for its expertise in international trade, logistics, and supply chain management.',
+    logo: 'https://via.placeholder.com/150?text=Hiview+International+Limited' // Placeholder image
+  }
+];
+
 // Inline styles
 const styles = {
   container: {
@@ -93,7 +129,7 @@ const styles = {
     color: '#333'
   },
   heroSection: {
-    background: 'url(https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?q=80&w=1730&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center/cover',
+    background: 'url(https://images.unsplash.com/photo-1473091534298-04dcbce3278c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center/cover',
     color: 'black',
     textAlign: 'center',
     padding: '100px 20px',
@@ -113,12 +149,12 @@ const styles = {
     fontSize: '48px',
     margin: '0',
     fontWeight: 'bold',
-    color: '#0000FF'
+    color: '#002b45'
   },
   heroSubtitle: {
     fontSize: '24px',
     margin: '10px 0 20px',
-    color: '#0000FF'
+    color: '#002b45'
   },
   ctaButton: {
     backgroundColor: '#0044cc', // Blue theme
@@ -159,43 +195,73 @@ const styles = {
     objectFit: 'cover',
   },
   cardBody: {
-    padding: '10px',
+    padding: '15px',
   },
   cardTitle: {
     fontSize: '18px',
     fontWeight: 'bold',
+    margin: '10px 0 5px',
   },
   cardText: {
-    fontSize: '16px',
+    fontSize: '14px',
+    color: '#666',
+  },
+  partnersSection: {
+    margin: '40px 0',
+    padding: '20px 0',
+    backgroundColor: '#f7f7f7',
+    borderRadius: '8px',
+  },
+  partnerCard: {
+    textAlign: 'center',
+    padding: '20px',
+  },
+  partnerLogo: {
+    width: '150px',
+    height: 'auto',
+    marginBottom: '10px',
+  },
+  partnerBody: {
+    padding: '10px',
+  },
+  partnerTitle: {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: '10px 0 5px',
+  },
+  partnerText: {
+    fontSize: '14px',
+    color: '#666',
   },
   testimonialsSection: {
-    margin: '20px 0',
-    backgroundColor: '#f9f9f9',
-    padding: '20px',
+    margin: '40px 0',
+    padding: '20px 0',
+    backgroundColor: '#f1f1f1',
     borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
   },
   testimonialItem: {
+    padding: '20px',
     textAlign: 'center',
-    padding: '20px'
   },
   testimonialText: {
     fontSize: '16px',
     fontStyle: 'italic',
-    marginBottom: '10px'
+    marginBottom: '10px',
   },
   testimonialAuthor: {
     fontSize: '14px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#0044cc',
   },
   ctaSection: {
+    margin: '40px 0',
+    padding: '20px 0',
     textAlign: 'center',
-    margin: '40px 0'
   },
   ctaTitle: {
-    fontSize: '28px',
+    fontSize: '24px',
+    fontWeight: 'bold',
     marginBottom: '20px',
-    color: '#0044cc' // Blue theme
   }
 };
 
