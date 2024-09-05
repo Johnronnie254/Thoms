@@ -13,8 +13,8 @@ function Home() {
       <div className='hero-container-main' style={{ background: '#002b45' }}>
         <section style={styles.heroSection} className='hero-sect'>
           <div style={styles.heroContent}>
-            <h1 style={styles.heroTitle}>Your reliable IT solutions provider</h1>
-            <p style={styles.heroSubtitle}>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            <h1 style={styles.heroTitle} className='hero-title'>Your reliable IT solutions provider</h1>
+            <p style={styles.heroSubtitle} className='hero-subtitle'>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
             <button style={styles.ctaButton} className='cta-button'>Get Started</button>
           </div>
           <div className='hero-image-container'>
@@ -187,14 +187,14 @@ const styles = {
     textAlign: 'start'
   },
   ctaButton: {
-    backgroundColor: '#0044cc', // Blue theme
+    backgroundColor: 'rgb(209, 41, 41)', // Blue theme
     color: '#fff',
     border: 'none',
-    borderRadius: '5px',
-    padding: '15px 20px',
-    fontSize: '16px',
+    borderRadius: '25px',
+    padding: '15px 25px',
+    fontSize: '1.2rem',
     cursor: 'pointer',
-    width: '140px'
+    width: '180px'
   },
   cardSection: {
     margin: '20px 0 120px 0',
@@ -302,7 +302,7 @@ const styles = {
     marginBottom: '20px',
   },
   ctaButtons: {
-    backgroundColor: '#0044cc', // Blue theme
+    backgroundColor: 'rgb(209, 41, 41)', 
     color: '#fff',
     border: 'none',
     borderRadius: '5px',

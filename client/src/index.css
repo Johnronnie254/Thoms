@@ -31,6 +31,11 @@ code {
 .hero-image-container {
   margin-top: -100px;
   margin-left: 50px;
+  width: 500px;
+  height: 500px;
+}
+.hero-image {
+  width: 100%;
 }
 
 .cta-button:hover {
@@ -83,7 +88,7 @@ code {
 .cta-1-child p {
   text-align: center;
   font-size: 1.2rem;
-  max-width: 500px;
+  max-width: 1000px;
 }
 
 .cta-section-0 {
@@ -116,21 +121,69 @@ code {
 .nav-contact {
   background-color: rgb(209, 41, 41);
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 25px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1300px) {
   .hero-sect {
     width: 100%;
     padding-top: 50px;
+    text-align: center;
+  }
+  .hero-sect h1 {
+    text-align: center;
+  }
+  .hero-container-main {
+    padding: 0 10px;
+  }
+  .hero-image-container {
+    margin: -25px 0 10px 0;
+    padding: 0 10px;
+    width: 300px;
+    align-self: center;
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+  }
+  .cta-1 {
+    width: 100%;
+    padding: 10px;
+  }
+  .cta-1-child {
+    width: 100%;
+  }
+  .cta-1-child h2 {
+    font-size: 25px;
+    line-height: 1;
+    text-align: start;
+  }
+  .cta-1-child p {
+    font-size: 1.1rem;
+    text-align: start;
+    margin-top: 1.2rem;
+  }
+  .cta-section-0 {
+    flex-direction: column;
+    padding: 0 10px;
   }
 }
 
 
 @media screen and (max-width: 1200px) {
   .hero-sect {
-    height: auto;
+    height: 120vh;
     flex-direction: column;
     width: 100%;
+    gap: 8rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero-image-container {
+    display: none;
   }
 }

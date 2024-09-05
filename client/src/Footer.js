@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 export default function Footer() {
   return (
     <footer style={styles.footer}>
-      <Container>
+      <Container >
         <div style={styles.footerContent}>
           <div style={styles.footerSection}>
             <h4 style={styles.footerTitle}>About Us</h4>
@@ -64,7 +64,12 @@ const styles = {
   },
   footerTitle: {
     fontSize: '20px',
-    marginBottom: '10px',
+    marginBottom: '20px',
+    textDecoration: "underline",
+    textDecorationColor: "rgb(209, 41, 41)",
+    textDecorationSkip: '4px',
+    textDecorationThickness: '3px',
+    textUnderlineOffset: '4px'
   },
   footerText: {
     fontSize: '16px',
