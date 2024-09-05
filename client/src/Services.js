@@ -5,17 +5,18 @@ import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign, faChartLine, faUsers, faTachometerAlt, faLaptopCode, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import "./Service.css"
+import Footer from './Footer';
 export default function Services() {
     return (
-        <div style={{ backgroundColor: '#002b45', padding: '60px 20px', color: '#ffffff' }}>
-            <Container>
+        <div style={{ backgroundColor: '#002b45', padding: '60px 0 0 0', color: '#ffffff' }}>
+            <Container style={{ paddingBottom: "120px"}}>
                 <h2 style={{ fontSize: '36px', fontWeight: 'bold', fontFamily: 'Arial', textAlign: 'center', marginBottom: '40px' }}>
                     Our Services
                 </h2>
                 <Row>
                     {services.map((service, index) => (
                         <Col md={6} lg={4} className="mb-4" key={index}>
-                            <div className="service-card">
+                            <div className="service-card" style={{cursor: "pointer"}}>
                                 <FontAwesomeIcon icon={service.icon} size="3x" style={{ marginBottom: '15px' }} />
                                 <h3 style={{ fontSize: '24px', fontWeight: 'bold' }}>{service.title}</h3>
                                 <p style={{ fontSize: '16px' }}>{service.description}</p>
@@ -24,6 +25,7 @@ export default function Services() {
                     ))}
                 </Row>
             </Container>
+            <Footer />
         </div>
     );
 }

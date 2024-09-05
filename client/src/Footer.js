@@ -51,7 +51,7 @@ const styles = {
     backgroundColor: '#231834',
     color: 'white',
     padding: '40px 0',
-    marginTop: '70px',
+    // marginTop: '70px',
   },
   footerContent: {
     display: 'flex',

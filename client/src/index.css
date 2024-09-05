@@ -11,3 +11,126 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+.nav>*:hover {
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: .1s ease-in-out;
+}
+.hero-container-main {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2.5rem;
+}
+.hero-image-container {
+  margin-top: -100px;
+  margin-left: 50px;
+}
+
+.cta-button:hover {
+  opacity: 0.7;
+  scale: 0.99;
+  transition: .1s ease-in-out;
+}
+.cta-Buttons:hover {
+  opacity: 0.9;
+  scale: 0.99;
+  transition: .1s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: .2s ease-in-out;
+}
+
+.partner-card {
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cta-section {
+  background-color: white;
+}
+.cta-1 {
+  /* border: 2px solid blue; */
+  margin: 50px 0;
+  background-color: white;
+}
+.cta-1-child {
+  width: 1200px;
+  /* border: 2px solid green; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cta-1-child h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: #002b45;
+}
+.cta-1-child p {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 500px;
+}
+
+.cta-section-0 {
+  border-top: 1px solid rgb(211, 211, 211);
+  max-width: 1300px;
+  margin: 50px auto 100px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 50px;
+}
+
+.cta-div1 {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: center;
+}
+.cta-div1 p {
+  max-width: 600px;
+  font-size: 1.2rem;
+}
+.hero-sect {
+  display: flex;
+  height: 75vh;
+  width: 1300px;
+  padding-top: 200px;
+}
+
+.nav-contact {
+  background-color: rgb(209, 41, 41);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1300px) {
+  .hero-sect {
+    width: 100%;
+    padding-top: 50px;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .hero-sect {
+    height: auto;
+    flex-direction: column;
+    width: 100%;
+  }
+}
