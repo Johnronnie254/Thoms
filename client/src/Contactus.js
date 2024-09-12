@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import ContactImage from './Assets/contact.jpeg';
+
 
 export default function ContactUs() {
     // Define form fields state
@@ -102,7 +104,7 @@ export default function ContactUs() {
                 {/* Image and contact information */}
                 <div style={{ flex: '1', marginLeft: '40px' }}>
                     <img
-                        src='https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                        src={ContactImage}
                         alt='Contact us'
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                     />

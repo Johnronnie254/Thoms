@@ -14,7 +14,9 @@ function Home() {
         <section style={styles.heroSection} className='hero-sect'>
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle} className='hero-title'>Your reliable IT solutions provider</h1>
-            <p style={styles.heroSubtitle} className='hero-subtitle'>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            <p style={styles.heroSubtitle} className='hero-subtitle'> Richways Business Solutions is a trusted provider of innovative and reliable IT solutions, dedicated to empowering businesses with cutting-edge technology. We specialize in delivering comprehensive IT consulting, system integration, and digital transformation services. Our mission is to enhance efficiency, streamline processes, and support long-term growth for businesses of all sizes. 
+
+ </p>
             <button style={styles.ctaButton} className='cta-button'>Get Started</button>
           </div>
           <div className='hero-image-container'>
@@ -110,7 +112,7 @@ function Home() {
           <div className='cta-section-0'>
           <div className='cta-div1'>
           <h2 style={styles.ctaTitle}>Ready to Transform Your Business?</h2>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p>At Richways Business Solutions, we don’t just meet industry standards—we set them. Trust the best in IT solutions to take your business to new heights.</p>
           <button style={styles.ctaButtons} className='cta-Buttons'>Contact Us Today</button>
           </div>
 

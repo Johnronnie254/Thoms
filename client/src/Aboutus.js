@@ -2,7 +2,10 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Footer from './Footer';
+import Footer from './Footer'; 
+import ITConsultingImage from './Assets/IT_consulting.jpg';
+import VisionMissionImage from './Assets/vision-mission.jpg';
+
 
 function Aboutus() {
   return (
@@ -20,7 +23,7 @@ function Aboutus() {
           </Col>
           <Col md={6}>
             <img
-              src='https://plus.unsplash.com/premium_photo-1678566153919-86c4ba4216f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              src={ITConsultingImage}
               alt='Company Overview'
               style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
             />
@@ -31,7 +34,7 @@ function Aboutus() {
         <Row className="align-items-center" style={{ marginTop: '240px' }}>
           <Col md={6} order={{ md: 2 }}>
             <img
-              src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              src={VisionMissionImage}
               alt='Mission'
               style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
             />
