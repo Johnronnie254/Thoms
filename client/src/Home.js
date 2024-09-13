@@ -1,126 +1,74 @@
-// Importing necessary components
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel'; // Ensure Carousel is imported
-import Footer from './Footer';
+import React, { useRef } from 'react';
+import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
-import { ashton, biz } from './Assets/exports';
+import Footer from './Footer';
+import Aboutus from './Aboutus';
+import Contactus from './Contactus';
+import Services from './Services';
 
 // Main Home component
 function Home() {
+  const aboutRef = useRef(null);
+  const servicesRef = useRef(null);
+  const contactRef = useRef(null);
+
+  // Functions to scroll to specific sections
+  const scrollToSection = (ref) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div style={styles.container}>
-      {/* Hero Section */}
-      <div className='hero-container-main' style={{ background: '#002b45' }}>
-        <section style={styles.heroSection} className='hero-sect'>
+      {/* Hero and Services Carousel */}
+      <Carousel
+        showThumbs={false}
+        autoPlay
+        infiniteLoop
+        showArrows={false}
+        showStatus={false}
+        showIndicators={true}
+        dynamicHeight={false}
+        style={styles.carousel}
+      >
+        {/* Hero Section */}
+        <div style={{ ...styles.heroSection, backgroundImage: `url('https://images.unsplash.com/photo-1581094651181-35942459ef62?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+          <div style={styles.overlay}></div>
           <div style={styles.heroContent}>
-            <h1 style={styles.heroTitle} className='hero-title'>Your reliable IT solutions provider</h1>
-            <p style={styles.heroSubtitle} className='hero-subtitle'> Richways Business Solutions is a trusted provider of innovative and reliable IT solutions, dedicated to empowering businesses with cutting-edge technology. We specialize in delivering comprehensive IT consulting, system integration, and digital transformation services. Our mission is to enhance efficiency, streamline processes, and support long-term growth for businesses of all sizes. 
-
- </p>
-            <button style={styles.ctaButton} className='cta-button'>Get Started</button>
-          </div>
-          <div className='hero-image-container'>
-            <img src={biz} alt="hero-image" className='hero-image' />
-          </div>
-        </section>
-      </div>
-
-
-      {/* Services Section */}
-      <section style={styles.cardSection}>
-        <h2 style={styles.sectionTitle}>Our Featured Services</h2>
-        <div style={styles.cardContainer}>
-          {/* Cards for services */}
-          <div style={styles.card} className='card'>
-            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Consulting" style={styles.cardImage} />
-            <div style={styles.cardBody}>
-              <p style={styles.cardTitle}>IT Consulting</p>
-              <p style={styles.cardText}>Tailored Solutions for Your Business</p>
-            </div>
-          </div>
-          <div style={styles.card} className='card'>
-            <img src="https://images.unsplash.com/photo-1668854096784-3ce7679fa841?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="DevOps" style={styles.cardImage} />
-            <div style={styles.cardBody}>
-              <p style={styles.cardTitle}>DevOps & Support</p>
-              <p style={styles.cardText}>Ensuring Seamless Operations</p>
-            </div>
-          </div>
-          <div style={styles.card} className='card'>
-            <img src="https://plus.unsplash.com/premium_photo-1661761077411-d50cba031848?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Accounting" style={styles.cardImage} />
-            <div style={styles.cardBody}>
-              <p style={styles.cardTitle}>Accounting</p>
-              <p style={styles.cardText}>Comprehensive Financial Management</p>
-            </div>
-          </div>
-          <div style={styles.card} className='card'>
-            <img src="https://images.unsplash.com/photo-1510070009289-b5bc34383727?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Design and Planning" style={styles.cardImage} />
-            <div style={styles.cardBody}>
-              <p style={styles.cardTitle}>Design and Planning</p>
-              <p style={styles.cardText}>Creative Solutions for Your Projects</p>
-            </div>
+            <h1 style={styles.heroTitle}>Empowering Businesses with IT Solutions</h1>
+            <p style={styles.heroSubtitle}>
+              We provide innovative and reliable solutions tailored to meet your business needs.
+            </p>
+            <button style={styles.ctaButton}>Get Started</button>
           </div>
         </div>
-      </section>
 
-      {/* Partners Section */}
-      <div style={{ background: 'white' }}>
-        <section style={styles.partnersSection}>
-          <h2 style={styles.sectionTitle}>Our Partners</h2>
-          <Carousel showThumbs={false} autoPlay infiniteLoop>
-            {partners.map((partner, index) => (
-              <div key={index} style={styles.partnerCard}>
-                <div className='partner-card'>
-                  <img src={ashton} alt={partner.name} style={styles.partnerLogo} />
-                  <div style={styles.partnerBody}>
-                    <h3 style={styles.partnerTitle}>{partner.name}</h3>
-                    <p style={styles.partnerText}>{partner.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Carousel>
-        </section>
-
-        {/* Testimonials Section */}
-        {/* <section style={styles.testimonialsSection}>
-          <h2 style={styles.sectionTitle}>What Our Clients Say</h2>
-          <Carousel showThumbs={false} autoPlay infiniteLoop>
-            <div style={styles.testimonialItem}>
-              <p style={styles.testimonialText}>
-                "Richways provided exceptional IT consulting that transformed our business operations. Highly recommend!"
-              </p>
-              <p style={styles.testimonialAuthor}>- Jane Doe, CEO of Tech Solutions</p>
+        {/* Carousel Items */}
+        {carouselItems.map((item, index) => (
+          <div key={index} style={styles.carouselItem}>
+            <img src={item.imgSrc} alt={item.altText} style={styles.carouselImage} />
+            <div style={styles.carouselText}>
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
             </div>
-            <div style={styles.testimonialItem}>
-              <p style={styles.testimonialText}>
-                "Their DevOps support was critical in streamlining our processes and improving efficiency."
-              </p>
-              <p style={styles.testimonialAuthor}>- John Smith, CTO of Innovate Corp</p>
-            </div>
-          </Carousel>
-        </section> */}
-        <section className='cta-1'>
-          <div className='cta-1-child'>
-            <h2>The IT industry is a challenge.</h2>
-            <h2>Let us handle your IT needs while you handle making money.</h2>
-            <p>We leverage the latest technologies to enhance speed and delivery. With us your time is always our priority.</p>
           </div>
-        </section>
+        ))}
+      </Carousel>
 
-        {/* Call to Action Section */}
-        <section style={styles.ctaSection} className='cta-section'>
-          <div className='cta-section-0'>
-          <div className='cta-div1'>
-          <h2 style={styles.ctaTitle}>Ready to Transform Your Business?</h2>
-          <p>At Richways Business Solutions, we don’t just meet industry standards—we set them. Trust the best in IT solutions to take your business to new heights.</p>
-          <button style={styles.ctaButtons} className='cta-Buttons'>Contact Us Today</button>
-          </div>
+      {/* About Us Section */}
+      <div ref={aboutRef} id="aboutus" style={styles.section}>
+        <Aboutus />
+      </div>
 
-          <div className='cta-div2'>
-          <img src={biz} alt="hero-image" className='hero-image' />
-          </div>
-          </div>
-        </section>
+      {/* Services Section */}
+      <div ref={servicesRef} id="services" style={styles.section}>
+        <Services />
+      </div>
+
+      {/* Contact Us Section */}
+      <div ref={contactRef} id="contactus" style={styles.section}>
+        <Contactus />
       </div>
 
       {/* Footer Section */}
@@ -129,26 +77,6 @@ function Home() {
   );
 }
 
-// Partners data
-const partners = [
-  {
-    name: 'Mezzanine Ware Pty',
-    description: 'A leading technology company specializing in innovative solutions for the telecom, healthcare, and logistics industries.',
-    logo: 'https://via.placeholder.com/150?text=Mezzanine+Ware+Pty' // Placeholder image
-  },
-  {
-    name: 'Yara Group',
-    description: 'A global leader in agricultural solutions, focusing on sustainable farming practices and fertilizer production.',
-    logo: 'https://via.placeholder.com/150?text=Yara+Group' // Placeholder image
-  },
-  {
-    name: 'Hiview International Limited',
-    description: 'A consultancy firm renowned for its expertise in international trade, logistics, and supply chain management.',
-    logo: 'https://via.placeholder.com/150?text=Hiview+International+Limited' // Placeholder image
-  }
-];
-
-// Inline styles
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
@@ -157,163 +85,103 @@ const styles = {
     color: '#333',
   },
   heroSection: {
-    // background: 'url(https://images.unsplash.com/photo-1473091534298-04dcbce3278c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center/cover',
-    color: 'white',
-    textAlign: 'center',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    height: '100vh',
     position: 'relative',
-    background: '#002b45',
-    // border: '2px solid red',
-    margin: '0 auto 20px auto',
-    // border: '2px solid blue'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#fff',
+    textAlign: 'center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   heroContent: {
     position: 'relative',
     zIndex: 1,
-    display: 'flex',
-    flexDirection: 'column',
     maxWidth: '640px',
   },
   heroTitle: {
     fontSize: '48px',
-    marginBottom: '25px',
     fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'start'
+    marginBottom: '25px',
   },
   heroSubtitle: {
     fontSize: '20px',
-    margin: '10px 0 35px 0',
-    color: '#fff',
-    textAlign: 'start'
+    marginBottom: '35px',
   },
   ctaButton: {
-    backgroundColor: 'rgb(209, 41, 41)', // Blue theme
+    backgroundColor: '#d12929',
     color: '#fff',
     border: 'none',
     borderRadius: '25px',
     padding: '15px 25px',
     fontSize: '1.2rem',
     cursor: 'pointer',
-    width: '180px'
+    transition: 'background-color 0.3s ease',
   },
-  cardSection: {
-    margin: '20px 0 120px 0',
+  carousel: {
+    height: '500px', // Ensures uniform height
   },
-  sectionTitle: {
-    fontSize: '32px',
-    fontWeight: 'bold',
-    margin: '80px 0 50px',
-    textAlign: 'center',
-    color: '#002b45' // Blue theme
-  },
-  cardContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '30px',
-    justifyContent: 'center',
-  },
-  card: {
-    width: '250px',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.3s ease',
-    cursor: 'pointer',
+  carouselItem: {
+    position: 'relative',
     textAlign: 'center',
   },
-  cardImage: {
+  carouselImage: {
     width: '100%',
-    height: '150px',
+    height: '500px', // Ensures uniform height
     objectFit: 'cover',
   },
-  cardBody: {
-    padding: '15px',
-  },
-  cardTitle: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    margin: '10px 0 5px',
-    color: '#002b45'
-  },
-  cardText: {
-    fontSize: '14px',
-    color: '#666',
-  },
-  partnersSection: {
-    margin: '40px 0',
-    padding: '20px 0',
-    backgroundColor: '#f1f1f1',
-    // borderBottom: '1px solid rgb(212, 212, 212)'
-  },
-  partnerCard: {
-    textAlign: 'center',
-    padding: '20px',
-    display: 'flex',
-    justifyContent: 'center',
-    margin: '20px 0'
-  },
-  partnerLogo: {
-    width: '200px',
-    height: '200px',
-    borderRadius: '50%',
-    marginBottom: '10px',
-  },
-  partnerBody: {
-    padding: '10px',
-  },
-  partnerTitle: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    margin: '10px 0 5px',
-  },
-  partnerText: {
-    fontSize: '14px',
-    color: '#666',
-    maxWidth: '350px'
-  },
-  testimonialsSection: {
-    margin: '40px 0',
-    padding: '20px 0',
-    backgroundColor: '#f1f1f1',
+  carouselText: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: '#fff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: '10px 20px',
     borderRadius: '8px',
   },
-  testimonialItem: {
-    padding: '20px',
+  section: {
+    padding: '100px 0',
     textAlign: 'center',
+    backgroundColor: '#f9f9f9',
+    color: '#333',
   },
-  testimonialText: {
-    fontSize: '16px',
-    fontStyle: 'italic',
-    marginBottom: '10px',
-  },
-  testimonialAuthor: {
-    fontSize: '14px',
-    fontWeight: 'bold',
-    color: '#0044cc',
-  },
-  ctaSection: {
-    margin: '40px 0',
-    padding: '20px 0',
-    textAlign: 'center',
-  },
-  ctaTitle: {
-    fontSize: '30px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  ctaButtons: {
-    backgroundColor: 'rgb(209, 41, 41)', 
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    padding: '15px 15px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    width: '200px',
-    marginTop: '25px'
-  }
 };
+
+const carouselItems = [
+  {
+    imgSrc: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "Team collaborating on IT consulting solutions",
+    title: "IT Consulting",
+    description: "Tailored Solutions for Your Business",
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1668854096784-3ce7679fa841?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "Engineers maintaining seamless DevOps operations",
+    title: "DevOps & Support",
+    description: "Ensuring Seamless Operations",
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1511377107391-116a9d5d20b5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "Financial experts handling accounting tasks",
+    title: "Accounting",
+    description: "Comprehensive Financial Management",
+  },
+  {
+    imgSrc: "https://images.unsplash.com/photo-1510070009289-b5bc34383727?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "Creative team brainstorming design and planning strategies",
+    title: "Design and Planning",
+    description: "Creative Solutions for Your Projects",
+  },
+];
 
 export default Home;

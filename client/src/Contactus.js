@@ -6,16 +6,13 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import ContactImage from './Assets/contact.jpeg';
 
-
 export default function ContactUs() {
-    // Define form fields state
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
 
-    // Handle input change
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -23,21 +20,18 @@ export default function ContactUs() {
         });
     };
 
-    // Handle form submit
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent default form submission
-        // Send data to the backend
+        e.preventDefault();
         fetch('http://localhost:5000/contacts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData), // Send the form data to the backend
+            body: JSON.stringify(formData),
         })
         .then(response => {
             if (response.ok) {
                 console.log('Form submitted successfully!');
-                // Clear form after successful submission
                 setFormData({
                     name: '',
                     email: '',
@@ -51,7 +45,7 @@ export default function ContactUs() {
     };
 
     return (
-        <div style={{ backgroundColor: '#002b45', padding: '60px 20px', color: '#ffffff' }}>
+        <div style={{ backgroundColor: 'white', padding: '60px 20px', color: 'black' }}>
             <h2 style={{ fontSize: '36px', fontWeight: 'bold', fontFamily: 'Arial', textAlign: 'center', marginBottom: '40px' }}>
                 Contact Us
             </h2>
@@ -101,7 +95,6 @@ export default function ContactUs() {
                         </Button>
                     </Form>
                 </div>
-                {/* Image and contact information */}
                 <div style={{ flex: '1', marginLeft: '40px' }}>
                     <img
                         src={ContactImage}
@@ -113,10 +106,26 @@ export default function ContactUs() {
             {/* Footer with contact info and social media links */}
             <div style={{ marginTop: '40px', textAlign: 'center' }}>
                 <h4 style={{ fontSize: '20px', marginBottom: '20px' }}>Get in Touch</h4>
-                <p style={{ marginBottom: '10px' }}><FontAwesomeIcon icon={faMapMarkerAlt} /> IPS Building, Mama Ngina Street</p>
-                <p style={{ marginBottom: '10px' }}><FontAwesomeIcon icon={faMapMarkerAlt} /> P.O. Box 9358-00100, Nairobi</p>
-                <p style={{ marginBottom: '10px' }}><FontAwesomeIcon icon={faPhone} /> Tel: 0722 440 800</p>
-                <p style={{ marginBottom: '10px' }}><FontAwesomeIcon icon={faEnvelope} /> Email: financialservices186@gmail.com</p>
+                <p style={{ marginBottom: '10px' }}>
+                    <FontAwesomeIcon icon={faMapMarkerAlt} /> IPS Building, Mama Ngina Street
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                    <FontAwesomeIcon icon={faMapMarkerAlt} /> P.O. Box 9358-00100, Nairobi
+                </p>
+                {/* Clickable phone number */}
+                <p style={{ marginBottom: '10px' }}>
+                    <FontAwesomeIcon icon={faPhone} /> 
+                    <a href="tel:+254722440800" style={{ color: 'black', textDecoration: 'none' }}>
+                        Tel: +254722440800
+                    </a>
+                </p>
+                {/* Clickable email address */}
+                <p style={{ marginBottom: '10px' }}>
+                    <FontAwesomeIcon icon={faEnvelope} /> 
+                    <a href="mailto:solutions@richwaysbusiness.com" style={{ color: 'black', textDecoration: 'none' }}>
+                        Email: solutions@richwaysbusiness.com
+                    </a>
+                </p>
             </div>
             <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
                 <a href="https://facebook.com" style={{ color: '#ffffff' }}><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
