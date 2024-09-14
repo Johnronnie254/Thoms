@@ -30,10 +30,16 @@ function Home() {
         showStatus={false}
         showIndicators={true}
         dynamicHeight={false}
+        interval={5000} // Adjust the auto-play interval
         style={styles.carousel}
       >
         {/* Hero Section */}
-        <div style={{ ...styles.heroSection, backgroundImage: `url('https://images.unsplash.com/photo-1581094651181-35942459ef62?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+        <div
+          style={{ 
+            ...styles.heroSection, 
+            backgroundImage: `url('https://images.unsplash.com/photo-1581094651181-35942459ef62?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`
+          }}
+        >
           <div style={styles.overlay}></div>
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle}>Empowering Businesses with IT Solutions</h1>
@@ -62,7 +68,7 @@ function Home() {
       </div>
 
       {/* Services Section */}
-      <div ref={servicesRef} id="services" style={styles.section}>
+      <div ref={servicesRef} id="services" style={{ ...styles.section, backgroundColor: '#fff' }}>
         <Services />
       </div>
 
@@ -83,6 +89,7 @@ const styles = {
     margin: '0 auto',
     maxWidth: '100%',
     color: '#333',
+    overflowX: 'hidden', // Prevents horizontal scroll
   },
   heroSection: {
     height: '100vh',
@@ -150,7 +157,7 @@ const styles = {
     borderRadius: '8px',
   },
   section: {
-    padding: '100px 0',
+    padding: '80px 0', // Adjusted to reduce space between sections
     textAlign: 'center',
     backgroundColor: '#f9f9f9',
     color: '#333',

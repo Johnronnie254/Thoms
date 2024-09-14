@@ -2,14 +2,14 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FaRocket, FaEye, FaHandshake } from 'react-icons/fa'; // Example icons
+import { FaRocket, FaEye, FaHandshake } from 'react-icons/fa';
 
 function Aboutus() {
   return (
-    <div style={{ backgroundColor: 'white', color: 'black', padding: '40px 0' }}>
-      <Container style={{ marginBottom: "200px" }}>
+    <div style={{ backgroundColor: 'white', color: 'black', padding: '60px 0' }}>
+      <Container>
         {/* Company Overview Section */}
-        <Row className="align-items-center" style={{ marginTop: "50px" }}>
+        <Row className="align-items-center" style={{ marginTop: '30px' }}>
           <Col md={6}>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: 'black', marginBottom: '20px' }}>
               About Us
@@ -20,15 +20,15 @@ function Aboutus() {
           </Col>
           <Col md={6}>
             <img
-              src= 'https://images.unsplash.com/photo-1536148935331-408321065b18?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              src='https://images.unsplash.com/photo-1536148935331-408321065b18?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
               alt='Company Overview'
-              style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+              style={{ width: '80%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', margin: '0 auto', display: 'block' }}
             />
           </Col>
         </Row>
 
         {/* Our Mission, Vision, and Commitment Section */}
-        <Row className="text-center" style={{ marginTop: '100px' }}>
+        <Row className="text-center" style={{ marginTop: '60px' }}>
           {/* Mission Card */}
           <Col md={4} style={{ marginBottom: '20px' }}>
             <div style={styles.card}>
@@ -74,6 +74,7 @@ const styles = {
     padding: '20px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
+    height: '100%', // Ensures consistent card height
   },
   icon: {
     fontSize: '2.5rem',
