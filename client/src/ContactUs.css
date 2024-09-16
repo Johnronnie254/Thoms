@@ -1,77 +1,91 @@
+/* Main container styles */
 .contact-us-container {
-    background-color: white;
-    padding: 60px 20px;
-    color: black;
-}
-
-.contact-us-title {
-    font-size: 36px;
-    font-weight: bold;
+    padding: 20px;
+    background-color: #f4f4f4;
     text-align: center;
-    margin-bottom: 40px;
 }
 
+/* Title styles */
+.contact-us-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #231834;
+}
+
+/* Flexbox container for the form and contact details */
 .contact-us-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.contact-form, .contact-details {
-    max-width: 600px; /* Set a max-width for the form and contact details */
-    width: 100%;
+/* Form and details section styles */
+.contact-form,
+.contact-details {
+    flex: 1;
+    min-width: 300px; /* Ensures each section doesn't get too small */
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Add spacing between form elements */
-}
-
-.contact-form Form {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-form .form-control {
-    border: none;
-    border-bottom: 1px solid black;
-    border-radius: 0;
-    padding: 10px 0;
-    outline: none;
-}
-
-.submit-button {
+/* Form input styles */
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 10px;
-    font-weight: bold;
-    background-color: #f39c12;
-    border-color: #f39c12;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.contact-details {
-    border-top: 2px solid #f39c12;
-    padding: 20px;
+/* Submit button styles */
+.submit-button {
+    width: 100%;
+    background-color: #231834;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.contact-details h4 {
-    font-size: 20px;
-    margin-bottom: 20px;
+.submit-button:hover {
+    background-color: #444;
 }
 
+/* Contact details styles */
 .contact-details p {
-    margin-bottom: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #333;
 }
 
-.social-media-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
+/* Social media links */
 .social-media-links a {
-    color: black;
+    margin: 0 10px;
+    color: #231834;
+    text-decoration: none;
+}
+
+.social-media-links a:hover {
+    color: #444;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .contact-us-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form,
+    .contact-details {
+        width: 100%;
+        max-width: 500px;
+        margin: 10px 0;
+    }
 }
