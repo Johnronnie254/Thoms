@@ -26,12 +26,25 @@ function Home() {
         showThumbs={false}
         autoPlay
         infiniteLoop
-        showArrows={false}
+        showArrows={true} // Enable arrows
         showStatus={false}
         showIndicators={true}
         dynamicHeight={false}
         interval={5000} // Adjust the auto-play interval
-        style={styles.carousel}
+        renderArrowPrev={(clickHandler, hasPrev) =>
+          hasPrev && (
+            <button onClick={clickHandler} style={styles.arrowButtonLeft}>
+              &lt;
+            </button>
+          )
+        }
+        renderArrowNext={(clickHandler, hasNext) =>
+          hasNext && (
+            <button onClick={clickHandler} style={styles.arrowButtonRight}>
+              &gt;
+            </button>
+          )
+        }
       >
         {/* Hero Section */}
         <div
@@ -92,7 +105,7 @@ const styles = {
     overflowX: 'hidden', // Prevents horizontal scroll
   },
   heroSection: {
-    height: '100vh',
+    height: '500px', // Uniform height for all slides
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -134,16 +147,13 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
-  carousel: {
-    height: '500px', // Ensures uniform height
-  },
   carouselItem: {
     position: 'relative',
     textAlign: 'center',
   },
   carouselImage: {
     width: '100%',
-    height: '500px', // Ensures uniform height
+    height: '500px', // Ensures uniform height for all images
     objectFit: 'cover',
   },
   carouselText: {
@@ -161,6 +171,34 @@ const styles = {
     textAlign: 'center',
     backgroundColor: '#f9f9f9',
     color: '#333',
+  },
+  arrowButtonLeft: {
+    position: 'absolute',
+    top: '50%',
+    left: '15px',
+    transform: 'translateY(-50%)',
+    background: 'rgba(0, 0, 0, 0.5)',
+    border: 'none',
+    borderRadius: '50%',
+    color: '#fff',
+    fontSize: '24px',
+    padding: '10px',
+    cursor: 'pointer',
+    zIndex: 2,
+  },
+  arrowButtonRight: {
+    position: 'absolute',
+    top: '50%',
+    right: '15px',
+    transform: 'translateY(-50%)',
+    background: 'rgba(0, 0, 0, 0.5)',
+    border: 'none',
+    borderRadius: '50%',
+    color: '#fff',
+    fontSize: '24px',
+    padding: '10px',
+    cursor: 'pointer',
+    zIndex: 2,
   },
 };
 
@@ -185,9 +223,9 @@ const carouselItems = [
   },
   {
     imgSrc: "https://images.unsplash.com/photo-1510070009289-b5bc34383727?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    altText: "Creative team brainstorming design and planning strategies",
-    title: "Design and Planning",
-    description: "Creative Solutions for Your Projects",
+    altText: "Cybersecurity experts implementing robust defenses",
+    title: "Cybersecurity",
+    description: "Protecting Your Digital Assets",
   },
 ];
 

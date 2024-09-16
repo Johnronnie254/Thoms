@@ -1,12 +1,21 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom for routing
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom for routing
 import './index.css';
 
 export default function NavBar() {
   return (
-    <Navbar variant="dark" expand="lg" style={{ backgroundColor: '#002b45', padding: '10px 20px' }}>
+    <Navbar
+      variant="dark"
+      expand="lg"
+      fixed="top" // Fixed position to ensure it stays at the top
+      style={{ 
+        backgroundColor: '#002b45', 
+        padding: '10px 20px',
+        zIndex: 10 // Ensure it's above other elements
+      }}
+    >
       <Container>
         {/* Logo */}
         <Navbar.Brand style={{ color: 'white', fontSize: '36px', fontWeight: 'bold' }}>
@@ -43,3 +52,5 @@ const navStyle = {
   cursor: 'pointer',
   transition: 'color 0.3s ease',
 };
+
+// Ensure the Navbar styles are included in index.css

@@ -50,9 +50,12 @@ export default function Services() {
                                     textAlign: 'center'
                                 }}>
                                     <h4>Contact Us for More Information:</h4>
-                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
                                         <Button variant="outline-primary" style={{ padding: '10px 20px' }}>
-                                            <a href="mailto:solutions@richwaysbusiness.com" style={{ textDecoration: 'none', color: '#000' }}>
+                                            <a
+                                                href={`mailto:solutions@richwaysbusiness.com?subject=Inquiry about ${service.title}`}
+                                                style={{ textDecoration: 'none', color: '#000' }}
+                                            >
                                                 Email Us
                                             </a>
                                         </Button>
