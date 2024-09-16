@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import './ContactUs.css'; // Ensure you create a CSS file for additional styling
+import './ContactUs.css'; 
 
 export default function ContactUs() {
     const [formData, setFormData] = useState({
