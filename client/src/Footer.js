@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 export default function Footer() {
   return (
     <footer style={styles.footer}>
-      <Container >
+      <Container>
         <div style={styles.footerContent}>
           <div style={styles.footerSection}>
             <h4 style={styles.footerTitle}>About Us</h4>
@@ -28,10 +28,10 @@ export default function Footer() {
           <div style={styles.footerSection}>
             <h4 style={styles.footerTitle}>Quick Links</h4>
             <ul style={styles.footerLinks}>
-              <li><a href="/" style={styles.footerLink}>Home</a></li>
-              <li><a href="/services" style={styles.footerLink}>Our Services</a></li>
-              <li><a href="/about" style={styles.footerLink}>About Us</a></li>
-              <li><a href="/contact" style={styles.footerLink}>Contact Us</a></li>
+              <li><a href="#home" style={styles.footerLink}>Home</a></li>
+              <li><a href="#services" style={styles.footerLink}>Our Services</a></li>
+              <li><a href="#aboutus" style={styles.footerLink}>About Us</a></li>
+              <li><a href="#contactus" style={styles.footerLink}>Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -51,7 +51,6 @@ const styles = {
     backgroundColor: '#231834',
     color: 'white',
     padding: '40px 0',
-    // marginTop: '70px',
   },
   footerContent: {
     display: 'flex',
