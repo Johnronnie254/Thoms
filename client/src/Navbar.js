@@ -24,8 +24,8 @@ export default function NavBar() {
 
         {/* Contact Info below the logo */}
         <div style={{ color: 'white', fontSize: '14px', marginTop: '-8px' }}>
-          <div>Email: solutions@richwaysbusiness.com</div>
-          <div>Phone: +254722440800</div>
+          <div><a href="mailto:solutions@richwaysbusiness.com"> Email: solutions@richwaysbusiness.com</a></div>
+          <div><a href="tel:+254722440800"> Tel: +254722440800</a></div>
         </div>
 
         {/* Collapse button for mobile */}

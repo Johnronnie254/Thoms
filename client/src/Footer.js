@@ -21,12 +21,12 @@ export default function Footer() {
               P.O. Box 9358-00100,<br />
               Nairobi, Kenya<br />
               Tel: 0722 440 800<br />
-              Email: financialservices186@gmail.com
+              Email: solutions@richwaysbusiness.com
             </p>
           </div>
 
           <div style={styles.footerSection}>
-            <h4 style={styles.footerTitle}>Quick Links</h4>
+            <h4 style={styles.footerTitle}>Quick Lin</h4>
             <ul style={styles.footerLinks}>
               <li><a href="#home" style={styles.footerLink}>Home</a></li>
               <li><a href="#services" style={styles.footerLink}>Our Services</a></li>
