@@ -103,11 +103,21 @@ export default function ContactUs() {
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faPhone} />
-                        <a href="tel:+254722440800"> Tel: +254722440800</a>
+                        <a 
+                          href="tel:+254722440800" 
+                          style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
+                        >
+                          Tel: +254722440800
+                        </a>
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faEnvelope} />
-                        <a href="mailto:solutions@richwaysbusiness.com"> Email: solutions@richwaysbusiness.com</a>
+                        <a 
+                          href="mailto:solutions@richwaysbusiness.com" 
+                          style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
+                        >
+                          Email: solutions@richwaysbusiness.com
+                        </a>
                     </p>
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
