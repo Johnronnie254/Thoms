@@ -18,7 +18,7 @@ migrate = Migrate(app, db)
 CORS(app)
 db.init_app(app)
 
-@app.route('/contacts', methods=['POST'])
+@app.route('/backend/contacts', methods=['POST'])
 def create_contact():
     data = request.json  # Assuming the data is sent in JSON format in the request body
     name = data.get('name')
@@ -40,9 +40,9 @@ def create_contact():
     return jsonify({'message': 'Your message has been sent successfully'}), 201
 
 def send_email(name, email, message):
-    sender_email = "youremail@yourdomain.com"
-    receiver_email = "financialservices186@gmail.com"
-    password = "your-email-password"
+    sender_email = "biz@richwaysbusiness.com"
+    receiver_email = "solutions@richwaysbusiness.com"
+    password = "Tatuabiz=0"
 
     # Set up the email content
     msg = MIMEMultipart()
@@ -55,7 +55,7 @@ def send_email(name, email, message):
 
     try:
         # Set up the SMTP server (for local domain)
-        server = smtplib.SMTP('localhost', 25)  # Use your local mail server details here
+        server = smtplib.SMTP('mail.richwaysbusiness.com', 587)  # Use your local mail server details here
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
