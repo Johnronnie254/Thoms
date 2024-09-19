@@ -22,7 +22,7 @@ export default function ContactUs() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('/backend/contacts', {  // Updated URL to match the backend endpoint
+        fetch('https://richwaysbusiness.com/backend/contacts', {  // Updated URL to match the production endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
