@@ -22,7 +22,7 @@ export default function ContactUs() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/contacts', {
+        fetch('/backend/contacts', {  // Updated URL to match the backend endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
