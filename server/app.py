@@ -1,6 +1,7 @@
 import os
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
+from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -15,6 +16,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 migrate = Migrate(app, db)
+
+# Configure CORS to allow requests from your frontend
+CORS(app, resources={r"/contacts": {"origins": "https://richwaysbusiness.com"}})
 
 db.init_app(app)
 
@@ -39,10 +43,14 @@ def create_contact():
 
     return jsonify({'message': 'Your message has been sent successfully'}), 201
 
+@app.route('/contacts', methods=['OPTIONS'])
+def options_contact():
+    return jsonify({'message': 'CORS Preflight Successful'}), 200
+
 def send_email(name, email, message):
     sender_email = "biz@richwaysbusiness.com"
     receiver_email = "solutions@richwaysbusiness.com"
-    password = "safiBiz@1"  # environment variables in production
+    password = os.environ.get('EMAIL_PASSWORD')  # Use environment variable for security
 
     # Set up the email content
     msg = MIMEMultipart()
@@ -55,7 +63,7 @@ def send_email(name, email, message):
 
     try:
         # Set up the SMTP server
-        server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  
+        server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
