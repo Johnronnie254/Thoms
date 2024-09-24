@@ -23,11 +23,9 @@ export default function ContactUs() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-<<<<<<< HEAD
+
         fetch('https://api.richwaysbusiness.com/contacts', {  // Updated backend API URL
-=======
-        fetch('https://richwaysbusiness.com/backend/contacts', {  // Updated URL to match the production endpoint
->>>>>>> 331cb20fa467a478ef495c3d5ea69c6063d59286
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -118,29 +116,15 @@ export default function ContactUs() {
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faPhone} />
-<<<<<<< HEAD
+
                         <a href="tel:+254722440800" className="contact-link">Tel: +254722440800</a>
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faEnvelope} />
                         <a href="mailto:solutions@richwaysbusiness.com" className="contact-link">Email: solutions@richwaysbusiness.com</a>
-=======
-                        <a 
-                          href="tel:+254722440800" 
-                          style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
-                        >
-                          Tel: +254722440800
-                        </a>
+
                     </p>
-                    <p>
-                        <FontAwesomeIcon icon={faEnvelope} />
-                        <a 
-                          href="mailto:solutions@richwaysbusiness.com" 
-                          style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
-                        >
-                          Email: solutions@richwaysbusiness.com
-                        </a>
->>>>>>> 331cb20fa467a478ef495c3d5ea69c6063d59286
+                    
                     </p>
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
