@@ -5,7 +5,6 @@ from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
 from models import db, Contact
 
 app = Flask(__name__)
@@ -18,37 +17,39 @@ app.config['SQLALCHEMY_ECHO'] = True
 migrate = Migrate(app, db)
 
 # Configure CORS to allow only requests from your frontend
-CORS(app, resources={r"/backend/*": {"origins": "https://richwaysbusiness.com"}})
+CORS(app, resources={r"/*": {"origins": "https://richwaysbusiness.com"}})
 
 db.init_app(app)
 
-@app.route('/backend/contacts', methods=['POST'])
+@app.route('/contacts', methods=['POST'])
 def create_contact():
-    data = request.json
-    name = data.get('name')
-    email = data.get('email')
-    message = data.get('message')
+    try:
+        data = request.json
+        name = data.get('name')
+        email = data.get('email')
+        message = data.get('message')
 
-    # Save data to the database
-    new_message = Contact(
-        name=name,
-        email=email,
-        message=message,
-    )
-    db.session.add(new_message)
-    db.session.commit()
+        # Save data to the database
+        new_message = Contact(
+            name=name,
+            email=email,
+            message=message,
+        )
+        db.session.add(new_message)
+        db.session.commit()
 
-    # Send email
-    send_email(name, email, message)
+        # Send email
+        send_email(name, email, message)
 
-    return jsonify({'message': 'Your message has been sent successfully'}), 201
+        return jsonify({'message': 'Your message has been sent successfully'}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 def send_email(name, email, message):
-    sender_email = "biz@richwaysbusiness.com"
-    receiver_email = "solutions@richwaysbusiness.com"
-    password = "safiBiz@1"  # Use environment variables in production
+    sender_email = os.getenv('SENDER_EMAIL')
+    receiver_email = os.getenv('RECEIVER_EMAIL')
+    password = os.getenv('EMAIL_PASSWORD')  # Use environment variables for credentials
 
-    # Set up the email content
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = receiver_email
@@ -59,7 +60,7 @@ def send_email(name, email, message):
 
     try:
         # Set up the SMTP server
-        server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  # Update with your SMTP server
+        server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
