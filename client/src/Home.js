@@ -59,7 +59,7 @@ function Home() {
             <p style={styles.heroSubtitle}>
               We provide innovative and reliable solutions tailored to meet your business needs.
             </p>
-            <button style={styles.ctaButton}>Get Started</button>
+           
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import './ContactUs.css'; 
+import './ContactUs.css';
 
 export default function ContactUs() {
     const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ export default function ContactUs() {
         email: '',
         message: ''
     });
+    const [formStatus, setFormStatus] = useState(null); // New state to handle form status
 
     const handleChange = (e) => {
         setFormData({
@@ -22,7 +23,7 @@ export default function ContactUs() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/contacts', {
+        fetch('https://api.richwaysbusiness.com/contacts', {  // Updated backend API URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,6 +32,7 @@ export default function ContactUs() {
         })
         .then(response => {
             if (response.ok) {
+                setFormStatus('success');
                 console.log('Form submitted successfully!');
                 setFormData({
                     name: '',
@@ -38,10 +40,14 @@ export default function ContactUs() {
                     message: ''
                 });
             } else {
+                setFormStatus('failure');
                 console.log('Form submission failed.');
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            setFormStatus('error');
+            console.error('Error:', error);
+        });
     };
 
     return (
@@ -90,8 +96,13 @@ export default function ContactUs() {
                             Submit
                         </Button>
                     </Form>
+
+                    {/* Form Status */}
+                    {formStatus === 'success' && <p className="success-message">Your message has been sent successfully!</p>}
+                    {formStatus === 'failure' && <p className="error-message">Failed to submit the form. Please try again.</p>}
+                    {formStatus === 'error' && <p className="error-message">There was an error with the server. Please try again later.</p>}
                 </div>
-                
+
                 {/* Contact Details */}
                 <div className="contact-details">
                     <h4>Get in Touch</h4>
@@ -103,11 +114,11 @@ export default function ContactUs() {
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faPhone} />
-                        <a href="tel:+254722440800"> Tel: +254722440800</a>
+                        <a href="tel:+254722440800" className="contact-link">Tel: +254722440800</a>
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faEnvelope} />
-                        <a href="mailto:solutions@richwaysbusiness.com"> Email: solutions@richwaysbusiness.com</a>
+                        <a href="mailto:solutions@richwaysbusiness.com" className="contact-link">Email: solutions@richwaysbusiness.com</a>
                     </p>
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>

@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -20,7 +21,7 @@ db.init_app(app)
 
 @app.route('/contacts', methods=['POST'])
 def create_contact():
-    data = request.json  # Assuming the data is sent in JSON format in the request body
+    data = request.json
     name = data.get('name')
     email = data.get('email')
     message = data.get('message')
@@ -40,9 +41,9 @@ def create_contact():
     return jsonify({'message': 'Your message has been sent successfully'}), 201
 
 def send_email(name, email, message):
-    sender_email = "youremail@yourdomain.com"
-    receiver_email = "financialservices186@gmail.com"
-    password = "your-email-password"
+    sender_email = "biz@richwaysbusiness.com"
+    receiver_email = "solutions@richwaysbusiness.com"
+    password = "safiBiz@1"  # Use environment variables in production
 
     # Set up the email content
     msg = MIMEMultipart()
@@ -54,8 +55,8 @@ def send_email(name, email, message):
     msg.attach(MIMEText(body, 'plain'))
 
     try:
-        # Set up the SMTP server (for local domain)
-        server = smtplib.SMTP('localhost', 25)  # Use your local mail server details here
+        # Set up the SMTP server
+        server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  # Update with your SMTP server
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
@@ -67,3 +68,4 @@ def send_email(name, email, message):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
