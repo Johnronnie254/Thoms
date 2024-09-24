@@ -66,6 +66,11 @@ def send_email(name, email, message):
     except Exception as e:
         print(f'Failed to send email: {str(e)}')
 
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify({'message': 'Server is running!'}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
