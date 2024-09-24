@@ -24,8 +24,22 @@ export default function NavBar() {
 
         {/* Contact Info below the logo */}
         <div style={{ color: 'white', fontSize: '14px', marginTop: '-8px' }}>
-          <div><a href="mailto:solutions@richwaysbusiness.com"> Email: solutions@richwaysbusiness.com</a></div>
-          <div><a href="tel:+254722440800"> Tel: +254722440800</a></div>
+          <div style={{ marginBottom: '4px' }}>
+            <a 
+              href="mailto:solutions@richwaysbusiness.com"
+              style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
+            >
+              Email: solutions@richwaysbusiness.com
+            </a>
+          </div>
+          <div>
+            <a 
+              href="tel:+254722440800"
+              style={{ color: '#b0bec5', textDecoration: 'none' }} // Subtle color and no underline
+            >
+              Tel: +254722440800
+            </a>
+          </div>
         </div>
 
         {/* Collapse button for mobile */}

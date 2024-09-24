@@ -27,7 +27,7 @@ export default function Services() {
                                 className="service-card"
                                 style={{
                                     cursor: "pointer",
-                                    backgroundColor: selectedService === index ? '#f39c12' : '#fff',
+                                    backgroundColor: selectedService === index ? '#e3f2fd' : '#fff', // Light blue when selected
                                     color: selectedService === index ? '#000' : '#000',
                                     padding: '20px',
                                     borderRadius: '8px',

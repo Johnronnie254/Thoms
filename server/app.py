@@ -19,7 +19,7 @@ migrate = Migrate(app, db)
 CORS(app)
 db.init_app(app)
 
-@app.route('/contacts', methods=['POST'])
+@app.route('/backend/contacts', methods=['POST'])
 def create_contact():
     data = request.json
     name = data.get('name')
@@ -43,7 +43,9 @@ def create_contact():
 def send_email(name, email, message):
     sender_email = "biz@richwaysbusiness.com"
     receiver_email = "solutions@richwaysbusiness.com"
+
     password = "safiBiz@1"  # Use environment variables in production
+
 
     # Set up the email content
     msg = MIMEMultipart()
@@ -55,8 +57,10 @@ def send_email(name, email, message):
     msg.attach(MIMEText(body, 'plain'))
 
     try:
+
         # Set up the SMTP server
         server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  # Update with your SMTP server
+
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
