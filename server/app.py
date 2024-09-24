@@ -5,6 +5,7 @@ from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import requests  # Import requests for making HTTP calls
 
 from models import db, Contact
 
@@ -72,6 +73,24 @@ def send_email(name, email, message):
         print('Email sent successfully')
     except Exception as e:
         print(f'Failed to send email: {str(e)}')
+
+@app.route('/proxy/jokes', methods=['GET'])
+def proxy_jokes():
+    try:
+        # Define the external API endpoint
+        external_url = 'https://joke-api-strict-cors.appspot.com/jokes/random'
+        
+        # Make a request to the external API
+        response = requests.get(external_url)
+
+        # Check if the request was successful
+        if response.status_code == 200:
+            # Return the JSON response from the external API
+            return jsonify(response.json()), 200
+        else:
+            return jsonify({'error': 'Failed to retrieve jokes'}), response.status_code
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/test', methods=['GET'])
 def test():
