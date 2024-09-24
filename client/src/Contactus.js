@@ -33,7 +33,7 @@ export default function ContactUs() {
         };
 
         // Sending email
-        emailjs.send('service_jx5ef0q', '5iq7h8o', templateParams, 'wBhqa3IgU_Fj_pXHJ')
+        emailjs.send('service_jx5ef0q', 'template_1wcn39c', templateParams, 'wBhqa3IgU_Fj_pXHJ')
             .then((response) => {
                 console.log('Email sent successfully!', response.status, response.text);
                 setFormStatus('success');
@@ -122,7 +122,7 @@ export default function ContactUs() {
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
                         <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
-                       
+                        
                     </div>
                 </div>
             </div>
