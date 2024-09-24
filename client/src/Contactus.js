@@ -10,10 +10,11 @@ import emailjs from 'emailjs-com'; // Import EmailJS
 export default function ContactUs() {
     const [formData, setFormData] = useState({
         from_name: '',
-        email: '',
-        message: ''
+        from_email: '',
+        message: '',
+        reply_to: '', // Assuming you want to capture a reply-to email
     });
-    const [formStatus, setFormStatus] = useState(null); // New state to handle form status
+    const [formStatus, setFormStatus] = useState(null);
 
     const handleChange = (e) => {
         setFormData({
@@ -25,29 +26,24 @@ export default function ContactUs() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // EmailJS service ID, template ID, and user ID
-        const serviceID = 'service_jx5ef0q';  // Your service ID
-        const templateID = '5iq7h8o';          // Your template ID
-        const userID = 'wBhqa3IgU_Fj_pXHJ';   // Your public API key (user ID)
-
-        // Sending email using EmailJS
-        emailjs.send(serviceID, templateID, {
+        emailjs.send('service_jx5ef0q', '5iq7h8o', { // Your service ID and template ID
             from_name: formData.from_name,
-            reply_to: formData.email,
-            message: formData.message
-        }, userID)
+            from_email: formData.from_email,
+            message: formData.message,
+            reply_to: formData.reply_to,
+        }, 'wBhqa3IgU_Fj_pXHJ') // Your public API key
         .then((response) => {
+            console.log('Email sent successfully:', response.status, response.text);
             setFormStatus('success');
-            console.log('Form submitted successfully!', response.status, response.text);
             setFormData({
                 from_name: '',
-                email: '',
-                message: ''
+                from_email: '',
+                message: '',
+                reply_to: ''
             });
-        })
-        .catch((error) => {
-            setFormStatus('error');
-            console.error('Error sending email:', error);
+        }, (error) => {
+            console.log('Failed to send email:', error);
+            setFormStatus('failure');
         });
     };
 
@@ -55,7 +51,6 @@ export default function ContactUs() {
         <div className="contact-us-container">
             <h2 className="contact-us-title">Contact Us</h2>
             <div className="contact-us-content">
-                {/* Contact Form */}
                 <div className="contact-form">
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-4" controlId="formName">
@@ -73,11 +68,21 @@ export default function ContactUs() {
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control
                                 type="email"
-                                name="email"
-                                value={formData.email}
+                                name="from_email"
+                                value={formData.from_email}
                                 placeholder="name@example.com"
                                 onChange={handleChange}
                                 required
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-4" controlId="formReplyTo">
+                            <Form.Label>Reply To (optional)</Form.Label>
+                            <Form.Control
+                                type="email"
+                                name="reply_to"
+                                value={formData.reply_to}
+                                placeholder="replyto@example.com"
+                                onChange={handleChange}
                             />
                         </Form.Group>
                         <Form.Group className="mb-4" controlId="formMessage">
@@ -103,7 +108,7 @@ export default function ContactUs() {
 
                     {/* Form Status */}
                     {formStatus === 'success' && <p className="success-message">Your message has been sent successfully!</p>}
-                    {formStatus === 'error' && <p className="error-message">There was an error sending your message. Please try again later.</p>}
+                    {formStatus === 'failure' && <p className="error-message">Failed to submit the form. Please try again.</p>}
                 </div>
 
                 {/* Contact Details */}
@@ -123,11 +128,11 @@ export default function ContactUs() {
                         <FontAwesomeIcon icon={faEnvelope} />
                         <a href="mailto:solutions@richwaysbusiness.com" className="contact-link">Email: solutions@richwaysbusiness.com</a>
                     </p>
-
+                    
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
                         <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
-                        <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
+                        
                     </div>
                 </div>
             </div>
