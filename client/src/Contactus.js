@@ -5,16 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import './ContactUs.css';
-import emailjs from 'emailjs-com'; // Import EmailJS
+import emailjs from 'emailjs-com'; // Importing emailjs
 
 export default function ContactUs() {
     const [formData, setFormData] = useState({
-        from_name: '',
-        from_email: '',
-        message: '',
-        reply_to: '', // Assuming you want to capture a reply-to email
+        name: '',
+        email: '',
+        message: ''
     });
-    const [formStatus, setFormStatus] = useState(null);
+    const [formStatus, setFormStatus] = useState(null); // New state to handle form status
 
     const handleChange = (e) => {
         setFormData({
@@ -26,62 +25,54 @@ export default function ContactUs() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        emailjs.send('service_jx5ef0q', '5iq7h8o', { // Your service ID and template ID
-            from_name: formData.from_name,
-            from_email: formData.from_email,
+        // EmailJS configuration
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email, // Change this to match the template
             message: formData.message,
-            reply_to: formData.reply_to,
-        }, 'wBhqa3IgU_Fj_pXHJ') // Your public API key
-        .then((response) => {
-            console.log('Email sent successfully:', response.status, response.text);
-            setFormStatus('success');
-            setFormData({
-                from_name: '',
-                from_email: '',
-                message: '',
-                reply_to: ''
+        };
+
+        // Sending email
+        emailjs.send('service_jx5ef0q', '5iq7h8o', templateParams, 'wBhqa3IgU_Fj_pXHJ')
+            .then((response) => {
+                console.log('Email sent successfully!', response.status, response.text);
+                setFormStatus('success');
+                // Reset the form
+                setFormData({
+                    name: '',
+                    email: '',
+                    message: ''
+                });
+            }, (error) => {
+                console.error('Error sending email:', error);
+                setFormStatus('failure');
             });
-        }, (error) => {
-            console.log('Failed to send email:', error);
-            setFormStatus('failure');
-        });
     };
 
     return (
         <div className="contact-us-container">
             <h2 className="contact-us-title">Contact Us</h2>
             <div className="contact-us-content">
+                {/* Contact Form */}
                 <div className="contact-form">
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-4" controlId="formName">
                             <Form.Label>Full Name</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="from_name"
-                                value={formData.from_name}
+                                name="name"
+                                value={formData.name}
                                 placeholder="Enter your full name"
                                 onChange={handleChange}
-                                required
                             />
                         </Form.Group>
                         <Form.Group className="mb-4" controlId="formEmail">
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control
                                 type="email"
-                                name="from_email"
-                                value={formData.from_email}
+                                name="email"
+                                value={formData.email}
                                 placeholder="name@example.com"
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-4" controlId="formReplyTo">
-                            <Form.Label>Reply To (optional)</Form.Label>
-                            <Form.Control
-                                type="email"
-                                name="reply_to"
-                                value={formData.reply_to}
-                                placeholder="replyto@example.com"
                                 onChange={handleChange}
                             />
                         </Form.Group>
@@ -94,7 +85,6 @@ export default function ContactUs() {
                                 rows={5}
                                 placeholder="Your message here..."
                                 onChange={handleChange}
-                                required
                             />
                         </Form.Group>
                         <Button
@@ -132,7 +122,7 @@ export default function ContactUs() {
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
                         <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
-                        
+                       
                     </div>
                 </div>
             </div>
