@@ -125,7 +125,7 @@ export default function ContactUs() {
 
                     </p>
                     
-                    </p>
+                    
                     <div className="social-media-links">
                         <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
                         <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
