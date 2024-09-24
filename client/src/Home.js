@@ -59,7 +59,6 @@ function Home() {
             <p style={styles.heroSubtitle}>
               We provide innovative and reliable solutions tailored to meet your business needs.
             </p>
-           
           </div>
         </div>
 
@@ -76,17 +75,17 @@ function Home() {
       </Carousel>
 
       {/* About Us Section */}
-      <div ref={aboutRef} id="aboutus" style={styles.section}>
+      <div ref={aboutRef} id="aboutus" style={{ ...styles.section, backgroundColor: '#ADD8E6' }}>
         <Aboutus />
       </div>
 
       {/* Services Section */}
-      <div ref={servicesRef} id="services" style={{ ...styles.section, backgroundColor: '#fff' }}>
+      <div ref={servicesRef} id="services" style={{ ...styles.section, backgroundColor: '#ADD8E6' }}>
         <Services />
       </div>
 
       {/* Contact Us Section */}
-      <div ref={contactRef} id="contactus" style={styles.section}>
+      <div ref={contactRef} id="contactus" style={{ ...styles.section, backgroundColor: '#ADD8E6' }}>
         <Contactus />
       </div>
 
@@ -169,7 +168,6 @@ const styles = {
   section: {
     padding: '80px 0', // Adjusted to reduce space between sections
     textAlign: 'center',
-    backgroundColor: '#f9f9f9',
     color: '#333',
   },
   arrowButtonLeft: {
