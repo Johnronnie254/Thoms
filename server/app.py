@@ -16,7 +16,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 migrate = Migrate(app, db)
-CORS(app)
+
+# Configure CORS to allow only requests from your frontend
+CORS(app, resources={r"/backend/*": {"origins": "https://richwaysbusiness.com"}})
+
 db.init_app(app)
 
 @app.route('/backend/contacts', methods=['POST'])
@@ -43,9 +46,7 @@ def create_contact():
 def send_email(name, email, message):
     sender_email = "biz@richwaysbusiness.com"
     receiver_email = "solutions@richwaysbusiness.com"
-
     password = "safiBiz@1"  # Use environment variables in production
-
 
     # Set up the email content
     msg = MIMEMultipart()
@@ -57,10 +58,8 @@ def send_email(name, email, message):
     msg.attach(MIMEText(body, 'plain'))
 
     try:
-
         # Set up the SMTP server
         server = smtplib.SMTP('smtp.richwaysbusiness.com', 587)  # Update with your SMTP server
-
         server.starttls()
         server.login(sender_email, password)
         text = msg.as_string()
@@ -74,7 +73,5 @@ def send_email(name, email, message):
 def test():
     return jsonify({'message': 'Server is running!'}), 200
 
-
 if __name__ == '__main__':
     app.run(debug=True)
-
